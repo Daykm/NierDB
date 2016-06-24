@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Under development</title>
+<meta name="description" content="Under development" />
+<meta name="author" content="Daykm" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/nier/nier.css}" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Nier Weapon Database</h1>
+		</div>
+		<div th:text="${url}">URL</div>
+		<div th:each="ele : ${exception.stackTrace}">
+			<span th:text="${ele.methodName">com.daykm.example.Object.getExample</span>
+			<span th:text="${ele.className">Object.java</span>
+			:
+			<span th:text="${ele.lineNumber">1</span>
+		</div>
+	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" />
+</body>
+</html>
