@@ -46,3 +46,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /bin/
+
+# Build
+/build
+/.idea/*
+/.gradle
+/.idea/

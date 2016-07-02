@@ -1,43 +1,43 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8"/>
 
-<title>Under development</title>
-<meta name="description" content="Under development" />
-<meta name="author" content="Daykm" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<link rel="stylesheet" type="text/css"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" th:href="@{/nier/nier.css}" />
+    <title>Under development</title>
+    <meta name="description" content="Under development"/>
+    <meta name="author" content="Daykm"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/nier/nier.css}"/>
 </head>
 <body>
-	<h1>List</h1>
+<h1>List</h1>
 
 
-	<form action="#" th:action="@{/add}" th:object="${weapon}"
-		method="post">
-		<label for="${#ids.next('name')}">Name</label><input type="text"
-			th:field="*{name}" />
-		<div th:each="attr : *{attrs}">
-			<label>Damage</label> <input type="number"
-				th:field="*{attrs[__${attrStat.index}__].damage}" /> <label>Magic
-				Damage</label> <input type="number"
-				th:field="*{attrs[__${attrStat.index}__].magicDamage}" /> <label>Weight</label>
-			<input type="number"
-				th:field="*{attrs[__${attrStat.index}__].weight}" />
-			<div th:each="req : *{attrs[__${attrStat.index}__].reqs}">
-				<label>Material Name</label> <input type="text"
-					th:field="*{attrs[__${attrStat.index}__].reqs[__${reqStat.index}__].material.name}" />
-				<label>Quantity</label> <input type="number"
-					th:field="*{attrs[__${attrStat.index}__].reqs[__${reqStat.index}__].quantity}" />
-			</div>
-		</div>
-		<button type="submit">Add Weapon</button>
-	</form>
+<form action="#" th:action="@{/nier/add/}" th:object="${weapon}"
+      method="post">
+    <label for="${#ids.next('name')}">Name</label><input type="text"
+                                                         th:field="*{name}"/>
+    <div th:each="attr : *{attrs}">
+        <label>Damage</label> <input type="number"
+                                     th:field="*{attrs[__${attrStat.index}__].damage}"/> <label>Magic
+        Damage</label> <input type="number"
+                              th:field="*{attrs[__${attrStat.index}__].magicDamage}"/> <label>Weight</label>
+        <input type="number"
+               th:field="*{attrs[__${attrStat.index}__].weight}"/>
+        <div th:each="req : *{attrs[__${attrStat.index}__].reqs}">
+            <label>Material Name</label> <input type="text"
+                                                th:field="*{attrs[__${attrStat.index}__].reqs[__${reqStat.index}__].material.name}"/>
+            <label>Quantity</label> <input type="number"
+                                           th:field="*{attrs[__${attrStat.index}__].reqs[__${reqStat.index}__].quantity}"/>
+        </div>
+    </div>
+    <button type="submit">Add Weapon</button>
+</form>
 
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" />
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"/>
 </body>
 </html>

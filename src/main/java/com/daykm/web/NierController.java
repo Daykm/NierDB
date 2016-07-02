@@ -15,15 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-@RequestMapping("*")
 @Controller
+@RequestMapping("/nier")
 public class NierController {
 
     @Autowired
     WeaponRepository repo;
 
 	@RequestMapping(value="/", method = RequestMethod.GET)
-	public String index() {
+	public String index(Model model) {
+        model.addAttribute("weapons", repo.getWeapons());
 		return "nier/index";
 	}
 	

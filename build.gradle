@@ -12,16 +12,21 @@ buildscript {
 	}
 }
 
-apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'eclipse'
-apply plugin: 'spring-boot' 
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+
+mainClassName = "com.daykm.NierApplication"
 
 jar {
 	baseName = 'nier'
 	version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
+//targetCompatibility = 1.8
+
+
 
 repositories {
 	mavenCentral()
@@ -45,4 +50,21 @@ eclipse {
 		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
 		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
 	}
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
+
+task stage(type: Copy, dependsOn: [clean, build]) {
+    from jar.archivePath
+    into project.rootDir
+    rename {
+        'app.jar'
+    }
+}
+stage.mustRunAfter(clean)
+
+clean << {
+    project.file('app.jar').delete()
 }
